@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 买家商品
+ * 买家商品控制层
  * Created by 神迷的亮
  * 2018-04-18 13:49
  */

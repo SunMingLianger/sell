@@ -9,11 +9,14 @@ import lombok.Data;
 @Data
 public class ResultVo<T>
 {
-    /**错误码。 */
+    /**
+     * 错误码。
+     */
     private Integer code;
 
-    //TISHIXINXI
+    //提示信息
     private String msg;
 
+    //包装的对象
     private T data;
 }
