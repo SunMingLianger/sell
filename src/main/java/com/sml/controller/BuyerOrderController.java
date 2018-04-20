@@ -16,4 +16,9 @@ public class BuyerOrderController
     @Autowired
     private OrderService orderService;
 
+    public static void main(String[] args)
+    {
+        System.out.println("sss");
+    }
+
 }
