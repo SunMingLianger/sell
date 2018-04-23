@@ -104,7 +104,7 @@ public class BuyerOrderController
     public ResultVo cancel(@RequestParam("openid") String openid, @RequestParam("orderId") String orderId)
     {
 
-        OrderDTO orderDTO = buyerService.cancelOrder(openid, orderId);
+        buyerService.cancelOrder(openid, orderId);
 
         return ResultVoUtil.success();
     }
