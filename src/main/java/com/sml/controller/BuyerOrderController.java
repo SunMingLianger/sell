@@ -86,7 +86,7 @@ public class BuyerOrderController
     @GetMapping("/detail")
     public ResultVo<OrderDTO> listOrderDetail(@RequestParam("openid") String openid, @RequestParam("orderId") String orderId)
     {
-        // TODO: 18/4/23 不安全，openID没用到
+        //  18/4/23 不安全，openID没用到
        /* OrderDTO orderDTO = orderService.findOne(orderId);
         if (!orderDTO.getBuyerOpenid().equals(openid))
         {
