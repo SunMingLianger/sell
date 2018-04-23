@@ -4,6 +4,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
+ * 前台页面传递过来的表单传输实体
  * Created by 神迷的亮
  * 2018-04-20 15:32
  */

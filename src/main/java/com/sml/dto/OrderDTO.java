@@ -1,6 +1,8 @@
 package com.sml.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.sml.pojo.OrderDetail;
+import com.sml.util.serializer.Date2LongSerializer;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -9,10 +11,12 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * 对ORDERMASTER的封装。能封装时就用封装的，免得一些额外的参数信息被不法份子截获，获取你的情报
  * Created by 神迷的亮
  * 2018-04-18 17:23
  */
 @Data
+//@JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class OrderDTO implements Serializable
 {
     private static final long serialVersionUID = -4148563847910550747L;
@@ -42,9 +46,11 @@ public class OrderDTO implements Serializable
     private Integer payStatus;
 
     // 订单创建时间
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
 
     //订单更新时间
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
     //订单详情

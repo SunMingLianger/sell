@@ -3,6 +3,7 @@ package com.sml.vo;
 import lombok.Data;
 
 /**
+ * 后台处理后返回到前台的实体封装类
  * Created by 神迷的亮
  * 2018-04-18 13:52
  */
