@@ -1,7 +1,11 @@
 package com.sml.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.sml.enums.OrderStatusEnum;
+import com.sml.enums.PayStatusEnum;
 import com.sml.pojo.OrderDetail;
+import com.sml.util.EnumUtil;
 import com.sml.util.serializer.Date2LongSerializer;
 import lombok.Data;
 
@@ -55,5 +59,17 @@ public class OrderDTO implements Serializable
 
     //订单详情
     private List<OrderDetail> orderDetailList;
+
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum()
+    {
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum()
+    {
+        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
+    }
 
 }

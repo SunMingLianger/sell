@@ -103,5 +103,13 @@ public class OrderServiceImplTest
         Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(), paidOrder.getPayStatus());
     }
 
-}   
-  
+    @Test
+    public void testFindList()
+    {
+        PageRequest pageRequest = new PageRequest(0, 2);
+
+        Page<OrderDTO> list = orderService.findList(pageRequest);
+
+        log.error("s");
+    }
+}
