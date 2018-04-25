@@ -3,11 +3,26 @@
     <meta charset="UTF-8">
     <title>卖家商品列表</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/>
 </head>
 <body>
+<br>
+
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
+            <div class="jumbotron well">
+                <h1>
+                    卖家后台管理系统
+                </h1>
+                <p>
+                    给商户卖家提供的免费的商户后台系统哦！
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-small" href="javascript:void(0)">订单列表</a>
+                </p>
+            </div>
+
             <table class="table table-bordered">
                 <thead>
                 <tr class="success">
@@ -22,23 +37,26 @@
                     <th colspan="2">操作</th>
                 </tr>
                 </thead>
-
-                <#list orderDTOPage.content as orderDTO>
                 <tbody>
-                <tr>
-                    <td>${orderDTO.orderId}</td>
-                    <td>${orderDTO.buyerName}</td>
-                    <td>${orderDTO.buyerPhone}</td>
-                    <td>${orderDTO.buyerAddress}</td>
-                    <td>${orderDTO.orderAmount}</td>
-                    <td>${orderDTO.getOrderStatusEnum().message}</td>
-                    <td>${orderDTO.payStatusEnum.message}</td>
-                    <td>${orderDTO.createTime}</td>
-                    <td>详情</td>
-                    <td>取消</td>
-                </tr>
+                  <#list orderDTOPage.content as orderDTO>
+                  <tr>
+                      <td>${orderDTO.orderId}</td>
+                      <td>${orderDTO.buyerName}</td>
+                      <td>${orderDTO.buyerPhone}</td>
+                      <td>${orderDTO.buyerAddress}</td>
+                      <td>${orderDTO.orderAmount}</td>
+                      <td>${orderDTO.getOrderStatusEnum().message}</td>
+                      <td>${orderDTO.payStatusEnum.message}</td>
+                      <td>${orderDTO.createTime}</td>
+                      <td>详情</td>
+                      <td>
+                        <#if orderDTO.getOrderStatusEnum().message != "已取消">
+                            <a href="/sell/seller/order/cancel?orderid=${orderDTO.orderId}">取消</a>
+                        </#if>
+                      </td>
+                  </tr>
+                  </#list>
                 </tbody>
-                </#list>
             </table>
         </div>
     </div>
@@ -80,7 +98,5 @@
         </ul>
     </div>
 </div>
-
-
 </body>
 </html>

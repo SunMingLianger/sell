@@ -1,7 +1,10 @@
 package com.sml.controller;
 
 import com.sml.dto.OrderDTO;
+import com.sml.enums.ResultEnum;
+import com.sml.exception.SellException;
 import com.sml.service.OrderService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,6 +22,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/seller/order")
+@Slf4j
 public class SellerOrderController
 {
 
@@ -46,4 +50,31 @@ public class SellerOrderController
 
     }
 
+    /**
+     * 取消订单
+     *
+     * @param orderId 订单ID
+     * @param map 传输map
+     * @return 逻辑视图
+     */
+    @GetMapping("/cancel")
+    public ModelAndView cancel(@RequestParam("orderid") String orderId, Map<String, Object> map)
+    {
+        try
+        {
+            OrderDTO orderDTO = orderService.findOne(orderId);
+            orderService.cancelOrder(orderDTO);
+        }
+        catch (SellException e)
+        {
+            log.error("[卖家端取消订单] there had an exception");
+            map.put("msg", e.getMessage());
+            map.put("url", "/sell/seller/order/list");
+            return new ModelAndView("common/error", map);
+        }
+        map.put("msg", ResultEnum.ORDER_CANCEL_SUCCESS.getMsg());
+        map.put("url", "/sell/seller/order/list");
+        return new ModelAndView("/common/success");
+    }
 }
+
