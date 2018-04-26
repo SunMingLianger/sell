@@ -1,35 +1,18 @@
 package com.sml.pojo;
 
+import lombok.Data;
+
 /**
  * Builder模式，还没见过的一种构造模式
  * Created by 神迷的亮
  * 2018-04-25 11:28
  */
+@Data
 public class Sun
 {
     private String id;
 
     private String name;
-
-    public String getId()
-    {
-        return id;
-    }
-
-    public void setId(String id)
-    {
-        this.id = id;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
 
     public Sun(Builder builder)
     {

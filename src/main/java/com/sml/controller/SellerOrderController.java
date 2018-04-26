@@ -50,11 +50,25 @@ public class SellerOrderController
 
     }
 
+    //  使用restful格式传递参数
+  /*  @GetMapping("/list/{page}/{size}")
+    public ModelAndView list(Map<String, Object> map, @PathVariable(value = "page") Integer page, @PathVariable("size") Integer size)
+    {
+        PageRequest request = new PageRequest(page - 1, size);
+        Page<OrderDTO> orderDTOPage = orderService.findList(request);
+
+        map.put("orderDTOPage", orderDTOPage);
+        map.put("size", size);
+        map.put("currentPage", page);
+        return new ModelAndView("order/list", map);
+
+    }*/
+
     /**
      * 取消订单
      *
      * @param orderId 订单ID
-     * @param map 传输map
+     * @param map     传输map
      * @return 逻辑视图
      */
     @GetMapping("/cancel")
