@@ -1,43 +1,33 @@
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>卖家商品列表</title>
-    <link href="https://cdn.bootcss.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/>
-</head>
+
+<link rel="shortcut icon" href="/sell/static/favicon.ico" title="sml">
+    <#include "../common/header.ftl">
 <body>
-<br>
 
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <div class="jumbotron well">
-                <h1>
-                    卖家后台管理系统
-                </h1>
-                <p>
-                    给商户卖家提供的免费的商户后台系统哦！
-                </p>
-                <p>
-                    <a class="btn btn-primary btn-small" href="javascript:void(0)">订单列表</a>
-                </p>
-            </div>
+<div id="wrapper" class="toggled">
+<#--边栏-->
+<#include "../common/nav.ftl">
+<#--主要内容区域-->
+    <div id="page-content-wrapper">
 
-            <table class="table table-bordered">
-                <thead>
-                <tr class="success">
-                    <th>订单id</th>
-                    <th>姓名</th>
-                    <th>手机号</th>
-                    <th>地址</th>
-                    <th>金额</th>
-                    <th>订单状态</th>
-                    <th>支付状态</th>
-                    <th>创建时间</th>
-                    <th colspan="2">操作</th>
-                </tr>
-                </thead>
-                <tbody>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-bordered table-condensed">
+                        <thead>
+                        <tr class="success">
+                            <th>订单id</th>
+                            <th>姓名</th>
+                            <th>手机号</th>
+                            <th>地址</th>
+                            <th>金额</th>
+                            <th>订单状态</th>
+                            <th>支付状态</th>
+                            <th>创建时间</th>
+                            <th colspan="2">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                   <#list orderDTOPage.content as orderDTO>
                   <tr>
                       <td>${orderDTO.orderId}</td>
@@ -48,21 +38,21 @@
                       <td>${orderDTO.getOrderStatusEnum().message}</td>
                       <td>${orderDTO.payStatusEnum.message}</td>
                       <td>${orderDTO.createTime}</td>
-                      <td>详情</td>
+                      <td><a href="/sell/seller/order/detail?orderId=${orderDTO.orderId}">详情</a></td>
                       <td>
-                        <#if orderDTO.getOrderStatusEnum().message != "已取消">
-                            <a href="/sell/seller/order/cancel?orderid=${orderDTO.orderId}">取消</a>
+                        <#if orderDTO.getOrderStatusEnum().message == "新订单">
+                            <a href="/sell/seller/order/cancel?orderId=${orderDTO.orderId}">取消</a>
                         </#if>
                       </td>
                   </tr>
                   </#list>
-                </tbody>
-            </table>
-        </div>
-    </div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-    <div class="col-md-12 column">
-        <ul class="pagination pull-right">
+            <div class="col-md-12 column">
+                <ul class="pagination pull-right">
             <#if currentPage lte 1>
             <li class="disabled">
                 <a href="">上一页</a>
@@ -95,8 +85,12 @@
 
             </#if>
 
-        </ul>
+                </ul>
+            </div>
+        </div>
     </div>
+
 </div>
+
 </body>
 </html>

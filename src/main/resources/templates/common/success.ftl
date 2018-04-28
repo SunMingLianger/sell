@@ -1,9 +1,7 @@
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>成功信息页</title>
-    <link href="https://cdn.bootcss.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
-</head>
+
+<link rel="shortcut icon" href="/sell/static/favicon.ico" title="sml">
+    <#include "../common/header.ftl">
 <body>
 
 <div class="container">
