@@ -45,7 +45,7 @@ public class ProductInfo
     /**
      * zhuang tai 0 zhengchang 1 xia jia.
      */
-    private Integer productStatus;
+    private Integer productStatus = ProductStatus.UP.getCode();
 
     //lei mu bian  hao
     private Integer categoryType;

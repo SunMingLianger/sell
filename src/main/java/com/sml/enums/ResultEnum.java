@@ -41,7 +41,12 @@ public enum ResultEnum
 
     PRODUCT_ONSALE_SUCCESS(23, "商品上架成功"),
 
-    PRODUCT_OFFSALE_SUCCESS(24, "商品下架成功"),;
+    PRODUCT_OFFSALE_SUCCESS(24, "商品下架成功"),
+
+    PRODUCT_UPDATE_SUCCESS(25, "商品信息修改成功"),
+
+    CATEGORY_SAVE_SUCCESS(26,"类目信息保存成功"),
+    ;
 
     private Integer code;
 

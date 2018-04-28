@@ -33,7 +33,7 @@
                   <tr>
                       <td>${productInfo.productId}</td>
                       <td>${productInfo.productName}</td>
-                      <td><img height="100" width="50" src="${productInfo.productIcon}" alt="商品图片"></td>
+                      <td><img height="100" width="100" src="${productInfo.productIcon}" alt="商品图片"></td>
                       <td>${productInfo.productPrice}</td>
                       <td>${productInfo.productStock}</td>
                       <td>${productInfo.productDescription}</td>
