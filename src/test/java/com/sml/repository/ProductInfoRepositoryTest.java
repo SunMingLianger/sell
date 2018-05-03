@@ -1,4 +1,4 @@
-package com.sml.dao;
+package com.sml.repository;
 
 import com.sml.pojo.ProductInfo;
 import org.junit.Assert;
@@ -10,8 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by 神秘的亮

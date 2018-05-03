@@ -1,7 +1,7 @@
 package com.sml.service.impl;
 
-import com.sml.dao.ProductCategoryRepository;
 import com.sml.pojo.ProductCategory;
+import com.sml.repository.ProductCategoryRepository;
 import com.sml.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +18,9 @@ public class CategoryServiceImpl implements CategoryService
 {
     @Autowired
     private ProductCategoryRepository repository;
+
+    //    @Autowired
+    //    private ProductCategoryDao productCategoryDao;
 
     @Override
     public List<ProductCategory> findByCateGoryType(List<Integer> list)

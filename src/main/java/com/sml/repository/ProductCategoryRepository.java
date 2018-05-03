@@ -1,4 +1,4 @@
-package com.sml.dao;
+package com.sml.repository;
 
 import com.sml.pojo.ProductCategory;
 import org.springframework.data.jpa.repository.JpaRepository;

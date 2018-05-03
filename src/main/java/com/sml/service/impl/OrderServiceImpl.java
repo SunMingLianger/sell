@@ -1,8 +1,8 @@
 package com.sml.service.impl;
 
 import com.sml.converter.OrderMaster2OrderDTOConverter;
-import com.sml.dao.OrderDetailRepository;
-import com.sml.dao.OrderMasterRepository;
+import com.sml.repository.OrderDetailRepository;
+import com.sml.repository.OrderMasterRepository;
 import com.sml.dto.CartDTO;
 import com.sml.dto.OrderDTO;
 import com.sml.enums.OrderStatusEnum;
@@ -14,6 +14,7 @@ import com.sml.pojo.OrderMaster;
 import com.sml.pojo.ProductInfo;
 import com.sml.service.OrderService;
 import com.sml.service.ProductService;
+import com.sml.service.WebSocket;
 import com.sml.util.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -48,6 +49,9 @@ public class OrderServiceImpl implements OrderService
     @Autowired
     private OrderDetailRepository orderDetailRepository;
 
+    @Autowired
+    private WebSocket webSocket;
+
     @Override
     @Transactional
     public OrderDTO createOrder(OrderDTO orderDTO)
@@ -63,6 +67,7 @@ public class OrderServiceImpl implements OrderService
             if (productInfo == null)
             {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+                //                throw  new ResponseBankException();
             }
             //计算订单总价＊bigdecimal使用乘法时使用multiply.使用加法时使用add；
             orderAmount = productInfo.getProductPrice().multiply(new BigDecimal(detail.getProductQuantity())).add(orderAmount);
@@ -92,6 +97,9 @@ public class OrderServiceImpl implements OrderService
                 .collect(Collectors.toList());
 
         productService.decreaseStock(cartDTOList);
+
+        //发送websocket消息
+        webSocket.sendMessage(orderId);
 
         return orderDTO;
     }

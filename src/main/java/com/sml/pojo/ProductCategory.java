@@ -6,7 +6,6 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
 
 /**
  * Author is sunmingliang, Email sunmlcn@163.com,Date on 2018-04-17 14:56.
@@ -15,7 +14,7 @@ import java.util.Date;
 @Entity
 @DynamicUpdate//动态更新
 @Data
-public class ProductCategory
+public class ProductCategory extends MapperSuperDate
 {
     @Id
     @GeneratedValue
@@ -24,10 +23,6 @@ public class ProductCategory
     private String categoryName;
 
     private Integer categoryType;
-
-    private Date createTime;
-
-    private Date updateTime;
 
     public ProductCategory(String categoryName, Integer categoryType)
     {

@@ -1,12 +1,14 @@
 package com.sml.exception;
 
 import com.sml.enums.ResultEnum;
+import lombok.Getter;
 
 /**
  * yichang lei
  * Created by 神迷的亮
  * 2018-04-19 09:17
  */
+@Getter
 public class SellException extends RuntimeException
 {
     private Integer code;

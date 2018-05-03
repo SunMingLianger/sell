@@ -1,6 +1,6 @@
 package com.sml.service.impl;
 
-import com.sml.dao.ProductInfoRepository;
+import com.sml.repository.ProductInfoRepository;
 import com.sml.dto.CartDTO;
 import com.sml.enums.ProductStatus;
 import com.sml.enums.ResultEnum;

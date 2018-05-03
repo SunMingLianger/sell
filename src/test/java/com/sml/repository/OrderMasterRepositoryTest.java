@@ -1,4 +1,4 @@
-package com.sml.dao;
+package com.sml.repository;
 
 import com.sml.pojo.OrderMaster;
 import org.junit.Assert;
