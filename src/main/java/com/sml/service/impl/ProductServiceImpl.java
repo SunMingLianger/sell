@@ -1,11 +1,11 @@
 package com.sml.service.impl;
 
-import com.sml.repository.ProductInfoRepository;
 import com.sml.dto.CartDTO;
 import com.sml.enums.ProductStatus;
 import com.sml.enums.ResultEnum;
 import com.sml.exception.SellException;
 import com.sml.pojo.ProductInfo;
+import com.sml.repository.ProductInfoRepository;
 import com.sml.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,6 +21,7 @@ import java.util.List;
  * 2018-04-18 13:08
  */
 @Service
+//@CacheConfig(cacheNames = "product")
 public class ProductServiceImpl implements ProductService
 {
     @Autowired
@@ -39,12 +40,14 @@ public class ProductServiceImpl implements ProductService
     }
 
     @Override
+//    @Cacheable(key = "123")
     public ProductInfo findOne(String productId)
     {
         return repository.findOne(productId);
     }
 
     @Override
+//    @CachePut(key = "123")
     public ProductInfo save(ProductInfo productInfo)
     {
         return repository.save(productInfo);

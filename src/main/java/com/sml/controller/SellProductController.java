@@ -138,6 +138,8 @@ public class SellProductController
      * @return
      */
     @PostMapping("/save")
+    //    @CachePut(cacheNames = "product",key = "123")//每次都执行。更新
+    //    @CacheEvict(cacheNames = "product",key = "123")//删除缓存
     public ModelAndView save(@Valid ProductForm form, BindingResult bindingResult, Map<String, Object> map)
     {
         if (bindingResult.hasErrors())
