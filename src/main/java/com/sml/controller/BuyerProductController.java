@@ -10,10 +10,8 @@ import com.sml.vo.ProductVo;
 import com.sml.vo.ResultVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -36,8 +34,9 @@ public class BuyerProductController
     private CategoryService categoryService;
 
     @GetMapping("/list")
-    @Cacheable(cacheNames = "product", key = "#sellerId", condition = "#sellerId.length()>3", unless = "#result.getCode() != 0")
-    public ResultVo list(@RequestParam("sellerId") String sellerId)
+//    @Cacheable(cacheNames = "product", key = "#sellerId", condition = "#sellerId.length()>3", unless = "#result.getCode() != 0")
+    public ResultVo list()
+    //    public ResultVo list(@RequestParam("sellerId") String sellerId)
     {
         List<ProductInfo> productInfoList = productService.findUpAll();
 
