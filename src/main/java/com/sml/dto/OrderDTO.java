@@ -7,6 +7,7 @@ import com.sml.enums.PayStatusEnum;
 import com.sml.pojo.OrderDetail;
 import com.sml.util.EnumUtil;
 import com.sml.util.serializer.Date2LongSerializer;
+import com.sml.util.serializer.Date2StringSerializer;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -50,7 +51,7 @@ public class OrderDTO implements Serializable
     private Integer payStatus;
 
     // 订单创建时间
-    @JsonSerialize(using = Date2LongSerializer.class)
+    @JsonSerialize(using = Date2StringSerializer.class)
     private Date createTime;
 
     //订单更新时间
