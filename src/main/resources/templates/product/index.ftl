@@ -22,7 +22,8 @@
                         </div>
                         <div class="form-group">
                             <label>库存</label>
-                            <input type="number" name="productStock" max="10000" min="1" class="form-control" value="${(productInfo.productStock)!''}"/>
+                            <input type="number" name="productStock" max="10000" min="1" class="form-control"
+                                   value="${(productInfo.productStock)!''}"/>
                         </div>
                         <div class="form-group">
                             <label>描述</label>

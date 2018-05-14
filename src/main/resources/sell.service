@@ -1,0 +1,15 @@
+[Unit]
+Description=sell
+After=syslog.target network.target
+
+[Service]
+Type=simple
+
+ExecStart=/usr/bin/java -jar /opt/javaapps/sell.jar
+Execstop=/bin/kill -15 $MAINPID
+
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

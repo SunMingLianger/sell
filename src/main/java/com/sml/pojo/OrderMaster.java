@@ -50,7 +50,7 @@ public class OrderMaster
     //订单更新时间
     private Date updateTime;
 
-//    @Transient
-//    private List<OrderDetail> orderDetailList;
+    //    @Transient
+    //    private List<OrderDetail> orderDetailList;
 
 }

@@ -34,7 +34,7 @@ public class BuyerProductController
     private CategoryService categoryService;
 
     @GetMapping("/list")
-//    @Cacheable(cacheNames = "product", key = "#sellerId", condition = "#sellerId.length()>3", unless = "#result.getCode() != 0")
+    //    @Cacheable(cacheNames = "product", key = "#sellerId", condition = "#sellerId.length()>3", unless = "#result.getCode() != 0")
     public ResultVo list()
     //    public ResultVo list(@RequestParam("sellerId") String sellerId)
     {
