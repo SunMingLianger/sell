@@ -16,6 +16,7 @@ public class MathUtil
      */
     public static Boolean equal(Double d1, Double d2)
     {
+        //math.abs()返回参数的绝对值
         double abs = Math.abs(d1 - d2);
 
         if (abs < 0.01)
