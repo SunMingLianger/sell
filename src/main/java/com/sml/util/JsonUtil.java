@@ -1,6 +1,7 @@
 package com.sml.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
@@ -16,7 +17,7 @@ import java.io.IOException;
 @SuppressWarnings("all")
 public class JsonUtil
 {
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static ObjectMapper objectMapper = new ObjectMapper();
 
     public static String toJson(Object o)
     {
@@ -60,6 +61,19 @@ public class JsonUtil
         try
         {
             return objectMapper.readValue(msg, tClass);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static Object fromJson(String msg, TypeReference typeReference)
+    {
+        try
+        {
+            return objectMapper.readValue(msg, typeReference);
         }
         catch (IOException e)
         {
