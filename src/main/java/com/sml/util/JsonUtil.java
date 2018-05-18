@@ -13,7 +13,8 @@ import java.io.IOException;
  * Created by 神迷的亮
  * 2018-04-24 10:16
  */
-public class JsonUtil<T>
+@SuppressWarnings("all")
+public class JsonUtil
 {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
